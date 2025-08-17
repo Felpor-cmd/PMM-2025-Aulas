@@ -40,7 +40,7 @@ public class App {
         String current = "";
 
         for (int i = 0; i < quantidadeDeLetrasArray*2; i++) {
-            if (quantidadeDeLetrasArray > i){
+            if (quantidadeDeLetrasArray + 1 > i){
             current += objetoArray[i];
             System.out.println(current);
             } else {
@@ -49,6 +49,7 @@ public class App {
 
                 //Uso de Ia nessa parte 
                 //Nao sabia outra forma de fazer alem do -=, porem nao funcionava nessa questao
+
                 if (current.length() > 0) {
                     current = current.substring(0, current.length() - 1);
                 }
