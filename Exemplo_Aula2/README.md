@@ -1,18 +1,37 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Exemplo Aula 2 - Java
 
-## Folder Structure
+Este exemplo demonstra um programa simples em Java que realiza as seguintes operações:
 
-The workspace contains two folders by default, where:
+1. Solicita ao usuário a quantidade de valores que deseja inserir.
+2. Lê os valores inteiros informados pelo usuário e armazena em um vetor.
+3. Calcula a soma de todos os valores inseridos.
+4. Calcula a média dos valores.
+5. Exibe a soma e a média na tela.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Como funciona
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+O programa utiliza a classe `Scanner` para ler entradas do usuário. O fluxo principal é:
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- O usuário informa quantos números deseja inserir.
+- Para cada número, o programa solicita o valor e armazena em um vetor.
+- Após a leitura, o programa soma todos os valores e calcula a média.
+- Por fim, exibe o resultado da soma e da média.
 
-## Dependency Management
+## Estrutura de Pastas
+- `src/`: contém o arquivo `App.java` com o código-fonte do exemplo.
+- `bin/`: arquivos compilados.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Execução
+Para executar o programa:
+1. Compile o arquivo `App.java`:
+	```bash
+	javac -d ../bin App.java
+	```
+2. Execute o programa:
+	```bash
+	java -cp ../bin App
+	```
+
+## Objetivo
+Este exemplo serve para ilustrar conceitos básicos de entrada de dados, manipulação de vetores, soma e média em Java, dentro do contexto da disciplina de Programação Modular.

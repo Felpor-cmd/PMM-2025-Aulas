@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exer {
+public class App {
 
     static double[] lerNotas(int quantidade, double valorMaximo, Scanner teclado, String tipo){
         double[] notas = new double[quantidade];
