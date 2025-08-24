@@ -1,48 +1,78 @@
 import java.util.Scanner;
 
 public class App {
-    static int quntFrases(Scanner teclado){
-        int n;
+    static String[] lerFrases(Scanner teclado){
+        String[] frases = new String[100];
+        String frase;
+        int contador = 0;
 
-        System.out.println("Digite quantas frases deseja verifcar: ");
-        n = Integer.parseInt(teclado.nextLine());
-
-        return n;
-    }
-
-    static String[] preencheVetor(Scanner teclado, int quntFrases){
-        int[] vetorFrases = new int[quntFrases];
-
-        for(int i = 0; i < quntFrases; i++) {
-            System.out.println("Digite a " + i + " frase");
-            vetorFrases[i] = Integer.parseInt(teclado.nextLine());
-        }
-
-        return vetorFrases;
-    }
-
-    static String verificaPalindromo(char[] ObjetoFrases, int posicaoVetor){
-        boolean ehPalindromo;
-        int i = 0;
-    
-        for (; i < ObjetoFrases.length; i++);
-
-        if(i % 2 == 0){
+        System.out.println("Digite as frases (digite 'FIM' para encerrar):");
+        
+        while(contador < 100) {
+            System.out.print("Frase: ");
+            frase = teclado.nextLine();
             
-        }else {
-
+            if(frase.equalsIgnoreCase("FIM")) {
+                break;
+            }
+            
+            frases[contador] = frase;
+            contador++;
         }
 
+        String[] frasesFinais = new String[contador];
+        for(int i = 0; i < contador; i++) {
+            frasesFinais[i] = frases[i];
+        }
+
+        return frasesFinais;
+    }
+
+    static boolean verificaPalindromo(String frase){
+        char[] fraseSemEspacos = new char[frase.length()];
+        int tamanho = 0;
+        
+        for(int i = 0; i < frase.length(); i++) {
+            char c = frase.charAt(i);
+            if(c != ' ') {
+                if(c >= 'A' && c <= 'Z') {
+                    fraseSemEspacos[tamanho] = (char)(c + 32); // Converte para minúscula
+                } else {
+                    fraseSemEspacos[tamanho] = c;
+                }
+                tamanho++;
+            }
+        }
+        
+        int inicio = 0;
+        int fim = tamanho - 1;
+        
+        while(inicio < fim) {
+            if(fraseSemEspacos[inicio] != fraseSemEspacos[fim]) {
+                return false;
+            }
+            inicio++;
+            fim--;
+        }
+        
+        return true;
     }
     public static void main(String[] args) throws Exception {
-        Scanner teclado = new Scanner (System.in);
-        int quntFrases = quntFrases(teclado);
-        String[] vetorFrases = preencheVetor(teclado, quntFrases);
+        Scanner teclado = new Scanner(System.in);
+        String[] frases = lerFrases(teclado);
 
-        for (int i = 0; i < vetorFrases.length; i++) {
-            char[] ObjetoFrases = vetorFrases[i].toCharArray();
-            verificaPalindromo(ObjetoFrases, i);
+        System.out.println("\nResultados:");
+        for (int i = 0; i < frases.length; i++) {
+            String frase = frases[i];
+            boolean ehPalindromo = verificaPalindromo(frase);
+            
+            if(ehPalindromo) {
+                System.out.println("\"" + frase + "\" é um palíndromo.");
+            } else {
+                System.out.println("\"" + frase + "\" não é um palíndromo.");
+            }
         }
-
+        
+        teclado.close();
     }
 }
